@@ -7,21 +7,36 @@
         x:Class="Avalonia.ValidationTest.MainWindow"
         Title="Avalonia.ValidationTest"
         x:DataType="viewModel:MainViewModel">
-    
+
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Margin="0,20,0,0"
-                   Text="Name"/>
-        <TextBox Margin="0,5,0,10" MinWidth="150"
-                 Text="{CompiledBinding Project.Name}" />
-        
+                   Text="Name" />
+        <TextBox x:Name="NameTextBox" Margin="0,5,0,10" MinWidth="150" Background="White"
+                 Text="{CompiledBinding Project.Name}">
+            <ToolTip.Tip>
+                <ToolTip IsVisible="{CompiledBinding Project.NameIsChanged}">
+                    <TextBlock Text="{CompiledBinding Project.NameOriginalValue}" />
+                </ToolTip>
+            </ToolTip.Tip>
+        </TextBox>
+
         <TextBlock Margin="0,20,0,0"
-                   Text="Number"/>
+                   Text="Number" />
         <TextBox Margin="0,5,0,10" MinWidth="150"
                  Text="{CompiledBinding Project.Number}" />
-        
+
         <TextBlock Margin="0,20,0,0"
-                   Text="Remark"/>
+                   Text="Remark" />
         <TextBox Margin="0,5,0,10" MinWidth="150"
                  Text="{CompiledBinding Project.Remark}" />
+        
+        <TextBlock Margin="0,20,0,0"
+                   Text="Select" />
+        <ComboBox Margin="0,5,0,10" MinWidth="150"
+                  Items="{CompiledBinding Items}"
+                 SelectedItem="{CompiledBinding Project.Select}" />
+
+        <CheckBox Margin="0,5,0,10"
+                  IsChecked="{CompiledBinding Project.IsChecked}" />
     </StackPanel>
 </Window>

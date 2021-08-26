@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Avalonia.ValidationTest.Model;
+using Avalonia.ValidationTest.Wrapper.Base;
 
 namespace Avalonia.ValidationTest.Wrapper
 {
@@ -23,9 +24,9 @@ namespace Avalonia.ValidationTest.Wrapper
             set => SetValue(value);
         }
 
-        public string ProjectNameOriginalValue => GetOriginalValue<string>(nameof(Name));
+        public string NameOriginalValue => GetOriginalValue<string>(nameof(Name));
 
-        public bool ProjectNameIsChanged => GetIsChanged(nameof(Name));
+        public bool NameIsChanged => GetIsChanged(nameof(Name));
 
 
         [Required(ErrorMessage = "Required")]
@@ -52,5 +53,26 @@ namespace Avalonia.ValidationTest.Wrapper
         public string RemarkOriginalValue => GetOriginalValue<string>(nameof(Remark));
 
         public bool RemarkIsChanged => GetIsChanged(nameof(Remark));
+        
+        [Required(ErrorMessage = "Required")]
+        public string Select
+        {
+            get => GetValue<string>();
+            set => SetValue(value);
+        }
+
+        public string SelectOriginalValue => GetOriginalValue<string>(nameof(Select));
+
+        public bool SelectIsChanged => GetIsChanged(nameof(Select));
+        
+        public bool IsChecked
+        {
+            get => GetValue<bool>();
+            set => SetValue(value);
+        }
+
+        public bool IsCheckedOriginalValue => GetOriginalValue<bool>(nameof(IsChecked));
+
+        public bool IsCheckedIsChanged => GetIsChanged(nameof(IsChecked));
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Avalonia.ValidationTest.Wrapper
+namespace Avalonia.ValidationTest.Wrapper.Base
 {
     public class ChangeTrackingCollection<T> : ObservableCollection<T>, IValidatableTrackingObject
     where T : class, IValidatableTrackingObject
@@ -35,13 +35,9 @@ namespace Avalonia.ValidationTest.Wrapper
         public ReadOnlyObservableCollection<T> RemovedItems { get; private set; }
         public ReadOnlyObservableCollection<T> ModifiedItems { get; private set; }
 
-        public bool IsChanged
-        {
-            get
-            {
-                return AddedItems.Count > 0 || RemovedItems.Count > 0 || ModifiedItems.Count > 0;
-            }
-        }
+        public bool IsChanged => AddedItems.Count > 0 
+                                 || RemovedItems.Count > 0 
+                                 || ModifiedItems.Count > 0;
 
         public bool IsValid
         {
@@ -56,6 +52,7 @@ namespace Avalonia.ValidationTest.Wrapper
             _addedItems.Clear();
             _modifiedItems.Clear();
             _removedItems.Clear();
+            
             foreach (var item in this)
             {
                 item.AcceptChanges();
@@ -73,7 +70,7 @@ namespace Avalonia.ValidationTest.Wrapper
             }
             foreach (var removedItem in _removedItems.ToList())
             {
-                removedItem.RejectChanges(); // in case it has been first modified and then removed
+                removedItem.RejectChanges();
                 Add(removedItem);
             }
             foreach (var modifiedItem in _modifiedItems.ToList())

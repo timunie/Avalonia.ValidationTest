@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace Avalonia.ValidationTest.Wrapper
+namespace Avalonia.ValidationTest.Wrapper.Base
 {
     public class ModelWrapper<T> : NotifyDataErrorInfoBase, IValidatableTrackingObject, IValidatableObject
     {
@@ -27,11 +27,11 @@ namespace Avalonia.ValidationTest.Wrapper
             Validate();
         }
 
-        protected virtual void InitializeComplexProperties(T model)
+        private void InitializeComplexProperties(T model)
         {
         }
 
-        protected virtual void InitializeCollectionProperties(T model)
+        private void InitializeCollectionProperties(T model)
         {
         }
 
@@ -141,7 +141,7 @@ namespace Avalonia.ValidationTest.Wrapper
             }
         }
 
-        protected void RegisterCollection<TWrapper, TModel>(ChangeTrackingCollection<TWrapper> wrapperCollection, 
+        private void RegisterCollection<TWrapper, TModel>(ChangeTrackingCollection<TWrapper> wrapperCollection, 
             List<TModel> modelCollection) where TWrapper : ModelWrapper<TModel>
         {
             wrapperCollection.CollectionChanged += (s, e) =>
@@ -153,7 +153,7 @@ namespace Avalonia.ValidationTest.Wrapper
             RegisterTrackingObject(wrapperCollection);
         }
 
-        protected void RegisterComplex<TModel>(ModelWrapper<TModel> wrapper)
+        private void RegisterComplex<TModel>(ModelWrapper<TModel> wrapper)
         {
             RegisterTrackingObject(wrapper);
         }
@@ -179,7 +179,7 @@ namespace Avalonia.ValidationTest.Wrapper
             }
         }
 
-        public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

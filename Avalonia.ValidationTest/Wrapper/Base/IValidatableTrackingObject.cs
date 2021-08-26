@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Avalonia.ValidationTest.Wrapper
+namespace Avalonia.ValidationTest.Wrapper.Base
 {
     public interface IValidatableTrackingObject : IRevertibleChangeTracking, INotifyPropertyChanged
     {

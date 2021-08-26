@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using Avalonia.ValidationTest.ViewModel;
 
-namespace Avalonia.ValidationTest.Wrapper
+namespace Avalonia.ValidationTest.Wrapper.Base
 {
     public class NotifyDataErrorInfoBase : ViewModelBase, INotifyDataErrorInfo
     {

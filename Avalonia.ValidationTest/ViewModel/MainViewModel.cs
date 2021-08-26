@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Avalonia.ValidationTest.Model;
 using Avalonia.ValidationTest.Wrapper;
 
@@ -6,13 +7,22 @@ namespace Avalonia.ValidationTest.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private ProjectWrapper _project;
-        
+
+        public MainViewModel()
+        {
+            Items = new ObservableCollection<string>();
+        }
+
         public void Load()
         {
+            AddComboBoxItems();
+            
             var project = CreateNewProject();
             
             InitializeProject(project);
         }
+
+        public ObservableCollection<string> Items { get; }
 
         public ProjectWrapper Project
         {
@@ -23,14 +33,24 @@ namespace Avalonia.ValidationTest.ViewModel
                 OnPropertyChanged();
             }
         }  
+
+        private void AddComboBoxItems()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Items.Add($"Item {i}");
+            }
+        }
         
         private Project CreateNewProject()
         {
             var project = new Project
             {
-                Name = string.Empty,
+                Name = "Project",
                 Number = string.Empty,
-                Remark = string.Empty
+                Remark = string.Empty,
+                IsChecked = false,
+                Select = string.Empty
             };
 
             return project;
@@ -47,7 +67,6 @@ namespace Avalonia.ValidationTest.ViewModel
                     //InvalidateCommands();
                 }
             };
-            //InvalidateCommands();
         }
     }
 }

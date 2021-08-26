@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="Avalonia.ValidationTest/App.axaml" value="Avalonia.ValidationTest/Avalonia.ValidationTest.csproj" />
         <entry key="Avalonia.ValidationTest/MainWindow.axaml" value="Avalonia.ValidationTest/Avalonia.ValidationTest.csproj" />
       </map>
     </option>
