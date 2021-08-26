@@ -48,8 +48,16 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Number" Binding="{Binding Number}" />
                 <DataGridTextColumn Header="Remark" Binding="{Binding Remark}" />
-                <DataGridTextColumn Header="Select" Binding="{Binding Select}" />
-                <DataGridTextColumn Header="IsChecked" Binding="{Binding IsChecked}" />
+                <DataGridTemplateColumn Header="Select">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox Items="{Binding Path=DataContext.Items, 
+                                        RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                      SelectedItem="{Binding Select}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridCheckBoxColumn Header="IsChecked" Binding="{Binding IsChecked}" />
             </DataGrid.Columns>
             </DataGrid>
     </Grid>
