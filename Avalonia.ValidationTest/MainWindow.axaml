@@ -8,35 +8,49 @@
         Title="Avalonia.ValidationTest"
         x:DataType="viewModel:MainViewModel">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Margin="0,20,0,0"
-                   Text="Name" />
-        <TextBox x:Name="NameTextBox" Margin="0,5,0,10" MinWidth="150" Background="White"
-                 Text="{CompiledBinding Project.Name}">
-            <ToolTip.Tip>
-                <ToolTip IsVisible="{CompiledBinding Project.NameIsChanged}">
-                    <TextBlock Text="{CompiledBinding Project.NameOriginalValue}" />
-                </ToolTip>
-            </ToolTip.Tip>
-        </TextBox>
+    <Grid ColumnDefinitions="*,*">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Margin="0,20,0,0"
+                       Text="Name" />
+            <TextBox Margin="0,5,0,10" MinWidth="150"
+                     Text="{CompiledBinding Project.Name}">
+                <ToolTip.Tip>
+                    <ToolTip IsVisible="{CompiledBinding Project.NameIsChanged}">
+                        <TextBlock Text="{CompiledBinding Project.NameOriginalValue}" />
+                    </ToolTip>
+                </ToolTip.Tip>
+            </TextBox>
 
-        <TextBlock Margin="0,20,0,0"
-                   Text="Number" />
-        <TextBox Margin="0,5,0,10" MinWidth="150"
-                 Text="{CompiledBinding Project.Number}" />
+            <TextBlock Margin="0,20,0,0"
+                       Text="Number" />
+            <TextBox Margin="0,5,0,10" MinWidth="150"
+                     Text="{CompiledBinding Project.Number}" />
 
-        <TextBlock Margin="0,20,0,0"
-                   Text="Remark" />
-        <TextBox Margin="0,5,0,10" MinWidth="150"
-                 Text="{CompiledBinding Project.Remark}" />
-        
-        <TextBlock Margin="0,20,0,0"
-                   Text="Select" />
-        <ComboBox Margin="0,5,0,10" MinWidth="150"
-                  Items="{CompiledBinding Items}"
-                 SelectedItem="{CompiledBinding Project.Select}" />
+            <TextBlock Margin="0,20,0,0"
+                       Text="Remark" />
+            <TextBox Margin="0,5,0,10" MinWidth="150"
+                     Text="{CompiledBinding Project.Remark}" />
 
-        <CheckBox Margin="0,5,0,10"
-                  IsChecked="{CompiledBinding Project.IsChecked}" />
-    </StackPanel>
+            <TextBlock Margin="0,20,0,0"
+                       Text="Select" />
+            <ComboBox Margin="0,5,0,10" MinWidth="150"
+                      Items="{CompiledBinding Items}"
+                      SelectedItem="{CompiledBinding Project.Select}" />
+
+            <CheckBox Margin="0,5,0,10"
+                      IsChecked="{CompiledBinding Project.IsChecked}" />
+        </StackPanel>
+
+        <DataGrid Grid.Column="1" Margin="0,5,0,10" 
+                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Items="{CompiledBinding Projects}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Number" Binding="{Binding Number}" />
+                <DataGridTextColumn Header="Remark" Binding="{Binding Remark}" />
+                <DataGridTextColumn Header="Select" Binding="{Binding Select}" />
+                <DataGridTextColumn Header="IsChecked" Binding="{Binding IsChecked}" />
+            </DataGrid.Columns>
+            </DataGrid>
+    </Grid>
 </Window>

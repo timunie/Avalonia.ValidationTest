@@ -16,8 +16,8 @@ namespace Avalonia.ValidationTest.Wrapper
             set => SetValue(value);
         }
 
-        [Required(ErrorMessage = "Required")]
-        [StringLength(20, ErrorMessage = "Max length 20")]
+        [Required]
+        [StringLength(20)]
         public string Name
         {
             get => GetValue<string>();
@@ -29,8 +29,8 @@ namespace Avalonia.ValidationTest.Wrapper
         public bool NameIsChanged => GetIsChanged(nameof(Name));
 
 
-        [Required(ErrorMessage = "Required")]
-        [StringLength(20, ErrorMessage = "Max length 20")]
+        [Required]
+        [StringLength(20)]
         public string Number
         {
             get => GetValue<string>();
@@ -42,8 +42,8 @@ namespace Avalonia.ValidationTest.Wrapper
         public bool NumberIsChanged => GetIsChanged(nameof(Number));
         
         
-        [Required(ErrorMessage = "Required")]
-        [StringLength(20, ErrorMessage = "Max length 20")]
+        [Required]
+        [StringLength(20)]
         public string Remark
         {
             get => GetValue<string>();
@@ -54,7 +54,7 @@ namespace Avalonia.ValidationTest.Wrapper
 
         public bool RemarkIsChanged => GetIsChanged(nameof(Remark));
         
-        [Required(ErrorMessage = "Required")]
+        [Required]
         public string Select
         {
             get => GetValue<string>();
