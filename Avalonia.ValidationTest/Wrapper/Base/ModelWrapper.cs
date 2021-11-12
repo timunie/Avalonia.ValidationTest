@@ -179,7 +179,7 @@ namespace Avalonia.ValidationTest.Wrapper.Base
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

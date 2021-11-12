@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:control="clr-namespace:Avalonia.ValidationTest.View.Control"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Avalonia.ValidationTest.View.Control.HeaderTextBox">
+
+    <StackPanel x:Name="Root" x:DataType="control:HeaderTextBox">
+        <TextBlock Text="{CompiledBinding Header, Mode=OneWay}"
+                   Classes="MainTextBlockStyle"/>
+        <Border x:Name="TextBoxBorder">
+            <TextBox Text="{CompiledBinding Text, Mode=TwoWay}"
+                     Classes="MainTextBoxStyle">
+                <ToolTip.Tip>
+                    <ToolTip IsVisible="{CompiledBinding IsChanged}">
+                        <TextBlock Text="{CompiledBinding OriginalValue}" />
+                    </ToolTip>
+                </ToolTip.Tip>
+            </TextBox>
+        </Border>
+    </StackPanel>
+</UserControl>

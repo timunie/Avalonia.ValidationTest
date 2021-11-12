@@ -1,0 +1,12 @@
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\bin\Debug\net6.0\Avalonia.ValidationTest.Dto.deps.json
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\bin\Debug\net6.0\Avalonia.ValidationTest.Dto.dll
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\bin\Debug\net6.0\ref\Avalonia.ValidationTest.Dto.dll
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\bin\Debug\net6.0\Avalonia.ValidationTest.Dto.pdb
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\obj\Debug\net6.0\Avalonia.ValidationTest.Dto.csproj.AssemblyReference.cache
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\obj\Debug\net6.0\Avalonia.ValidationTest.Dto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\obj\Debug\net6.0\Avalonia.ValidationTest.Dto.AssemblyInfoInputs.cache
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\obj\Debug\net6.0\Avalonia.ValidationTest.Dto.AssemblyInfo.cs
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\obj\Debug\net6.0\Avalonia.ValidationTest.Dto.csproj.CoreCompileInputs.cache
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\obj\Debug\net6.0\Avalonia.ValidationTest.Dto.dll
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\obj\Debug\net6.0\ref\Avalonia.ValidationTest.Dto.dll
+C:\Users\kvali\source\repos\Avalonia\Testing\Avalonia.ValidationTest.Dto\obj\Debug\net6.0\Avalonia.ValidationTest.Dto.pdb

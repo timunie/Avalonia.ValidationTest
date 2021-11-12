@@ -3,6 +3,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:Avalonia.ValidationTest.ViewModel"
+        xmlns:control="clr-namespace:Avalonia.ValidationTest.View.Control"
+        xmlns:i="using:Avalonia.Xaml.Interactivity"
+        xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Avalonia.ValidationTest.MainWindow"
         Title="Avalonia.ValidationTest"
@@ -10,10 +13,22 @@
 
     <Grid ColumnDefinitions="*,*">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Margin="0,20,0,0"
-                       Text="Name" />
-            <TextBox Margin="0,5,0,10" MinWidth="150"
+            <control:HeaderTextBox Header="Name"
+                                   Text="{CompiledBinding Project.Name}"
+                                   IsChanged="{CompiledBinding Project.NameIsChanged}"
+                                   OriginalValue="{CompiledBinding Project.NameOriginalValue}" />
+            
+            <TextBlock Text="Name" Classes="MainTextBlockStyle" />
+            <TextBox Classes="MainTextBoxStyle" 
                      Text="{CompiledBinding Project.Name}">
+                <i:Interaction.Behaviors>
+                    <ia:DataTriggerBehavior Binding="{CompiledBinding Project.NameIsChanged}" 
+                                            ComparisonCondition="Equal"
+                                            Value="true">
+                        <ia:ChangePropertyAction PropertyName="Background"
+                                                 Value="SteelBlue" />
+                    </ia:DataTriggerBehavior>
+                </i:Interaction.Behaviors>
                 <ToolTip.Tip>
                     <ToolTip IsVisible="{CompiledBinding Project.NameIsChanged}">
                         <TextBlock Text="{CompiledBinding Project.NameOriginalValue}" />
@@ -21,23 +36,24 @@
                 </ToolTip.Tip>
             </TextBox>
 
-            <TextBlock Margin="0,20,0,0"
+            <TextBlock Classes="MainTextBlockStyle"
                        Text="Number" />
-            <TextBox Margin="0,5,0,10" MinWidth="150"
+            <TextBox Classes="MainTextBoxStyle"
                      Text="{CompiledBinding Project.Number}" />
 
-            <TextBlock Margin="0,20,0,0"
+            <TextBlock Classes="MainTextBlockStyle"
                        Text="Remark" />
-            <TextBox Margin="0,5,0,10" MinWidth="150"
+            <TextBox Classes="MainTextBoxStyle"
                      Text="{CompiledBinding Project.Remark}" />
 
-            <TextBlock Margin="0,20,0,0"
+            <TextBlock Classes="MainTextBlockStyle"
                        Text="Select" />
-            <ComboBox Margin="0,5,0,10" MinWidth="150"
+            <ComboBox Classes="MainComboBoxStyle"
                       Items="{CompiledBinding Items}"
                       SelectedItem="{CompiledBinding Project.Select}" />
 
-            <CheckBox Margin="0,5,0,10"
+            <CheckBox Classes="MainCheckBoxStyle"
+                      Content="IsChecked"
                       IsChecked="{CompiledBinding Project.IsChecked}" />
         </StackPanel>
 

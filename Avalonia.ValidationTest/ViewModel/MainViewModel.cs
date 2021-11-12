@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Avalonia.ValidationTest.Model;
+using Avalonia.ValidationTest.Dto;
 using Avalonia.ValidationTest.Wrapper;
 using Avalonia.ValidationTest.Wrapper.Base;
 
@@ -44,7 +44,7 @@ namespace Avalonia.ValidationTest.ViewModel
 
         private void AddComboBoxItems()
         {
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
             {
                 Items.Add($"Item {i}");
             }
@@ -52,10 +52,10 @@ namespace Avalonia.ValidationTest.ViewModel
 
         private void AddDataGridItems()
         {
-            var projects = new List<Project>();
-            for (int i = 0; i < 5; i++)
+            var projects = new List<ProjectDto>();
+            for (var i = 0; i < 5; i++)
             {
-                projects.Add(new Project()
+                projects.Add(new ProjectDto()
                 {
                     Name = $"Project {i}",
                     Number = $"00000{i}",
@@ -69,19 +69,13 @@ namespace Avalonia.ValidationTest.ViewModel
 
             foreach (var wrapper in Projects)
             {
-                wrapper.PropertyChanged += (s, e) =>
-                {
-                    if (e.PropertyName == nameof(wrapper.IsChanged) || e.PropertyName == nameof(wrapper.IsValid))
-                    {
-                        //InvalidateCommands();
-                    }
-                };
+                InitializeProject(wrapper.Model);
             }
         }
         
-        private Project CreateNewProject()
+        private static ProjectDto CreateNewProject()
         {
-            var project = new Project
+            var project = new ProjectDto
             {
                 Name = "Project",
                 Number = string.Empty,
@@ -93,7 +87,7 @@ namespace Avalonia.ValidationTest.ViewModel
             return project;
         }
         
-        private void InitializeProject(Project project)
+        private void InitializeProject(ProjectDto project)
         {
             Project = new ProjectWrapper(project);
 

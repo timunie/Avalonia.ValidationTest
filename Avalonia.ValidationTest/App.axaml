@@ -1,8 +1,58 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="Avalonia.ValidationTest.App">
+
     <Application.Styles>
-        <FluentTheme Mode="Light"/>
-        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+        <FluentTheme Mode="Light" />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
+        <StyleInclude Source="avares://DataBox/Themes/Fluent.axaml" />
+        
+        <!--A rough way of solving iot with WPF-->
+        <!--<ControlTemplate x:Key="ValidationErrorHint">
+            <Grid>
+                <Border Background="Red"
+                        Margin="0,0,0,0"
+                        Width="15"
+                        Height="15"
+                        CornerRadius="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        ToolTip="{Binding ElementName=CustomAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                    <TextBlock Text="!"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               FontSize="13" />
+                </Border>
+                <AdornedElementPlaceholder Name="CustomAdorner" />
+            </Grid>
+        </ControlTemplate>-->
+
+        <Style Selector="TextBlock.MainTextBlockStyle">
+            <Setter Property="Margin" Value="10,10,10,0" />
+            <Setter Property="Padding" Value="2,0,0,0" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="MinWidth" Value="200" />
+        </Style>
+
+        <Style Selector="TextBox.MainTextBoxStyle">
+            <Setter Property="Margin" Value="10,5,10,0" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="MinWidth" Value="200" />
+        </Style>
+        
+        <Style Selector="TextBox.MainComboBoxStyle">
+            <Setter Property="Margin" Value="10,5,10,0" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="MinWidth" Value="200" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        
+        <Style Selector="TextBox.MainCheckBoxStyle">
+            <Setter Property="Margin" Value="10,5,10,0" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="MinWidth" Value="200" />
+        </Style>
     </Application.Styles>
 </Application>
