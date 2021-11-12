@@ -8,6 +8,12 @@
         <StyleInclude Source="avares://DataBox/Themes/Fluent.axaml" />
         
         <!--A rough way of solving iot with WPF-->
+        <!--<Style x:Key="CompositeControlStyle"
+               TargetType="UserControl">
+            <Setter Property="Validation.ErrorTemplate"
+                    Value="{StaticResource ValidationErrorHint}" />
+        </Style>-->
+        
         <!--<ControlTemplate x:Key="ValidationErrorHint">
             <Grid>
                 <Border Background="Red"
