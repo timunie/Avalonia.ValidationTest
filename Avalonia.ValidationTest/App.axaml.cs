@@ -1,39 +1,38 @@
 using System;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Avalonia.ValidationTest.ViewModel;
+using Avalonia.ValidationTest.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Avalonia.ValidationTest
+namespace Avalonia.ValidationTest;
+
+public class App : Application
 {
-    public class App : Application
+    public override void Initialize()
     {
-        public override void Initialize()
+        AvaloniaXamlLoader.Load(this);
+    }
+
+    public override void OnFrameworkInitializationCompleted()
+    {
+        Container = ConfigureDependencyInjection();
+            
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            AvaloniaXamlLoader.Load(this);
+            desktop.MainWindow = new MainWindow();
         }
 
-        public override void OnFrameworkInitializationCompleted()
-        {
-            Container = ConfigureDependencyInjection();
-            
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            {
-                desktop.MainWindow = new MainWindow();
-            }
+        base.OnFrameworkInitializationCompleted();
+    }
+        
+    public IServiceProvider Container { get; private set; }
 
-            base.OnFrameworkInitializationCompleted();
-        }
-        
-        public IServiceProvider Container { get; private set; }
-        
-        IServiceProvider ConfigureDependencyInjection()
-        {
-            var serviceCollection = new ServiceCollection();
+    private static IServiceProvider ConfigureDependencyInjection()
+    {
+        var serviceCollection = new ServiceCollection();
             
-            serviceCollection.AddTransient<MainViewModel>();
+        serviceCollection.AddTransient<MainViewModel>();
          
-            return serviceCollection.BuildServiceProvider();
-        }
+        return serviceCollection.BuildServiceProvider();
     }
 }

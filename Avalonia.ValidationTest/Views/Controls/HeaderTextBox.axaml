@@ -1,0 +1,23 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.ValidationTest.Views.Controls">
+    <Design.PreviewWith>
+        <controls:HeaderTextBox />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|HeaderTextBox">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel>
+                    <TextBlock Text="{TemplateBinding Header, Mode=OneWay}"
+                               Classes="MainTextBlockStyle" />
+                    <Grid>
+                        <TextBox Text="{TemplateBinding Text, Mode=TwoWay}"
+                                 Classes="MainTextBoxStyle" />
+                    </Grid>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
